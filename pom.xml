@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ericsson.oss.pmic</groupId>
+        <artifactId>pmic-integration</artifactId>
+        <version>3.1.120</version>
+    </parent>
+
+    <groupId>com.ericsson.oss.mediation.pm</groupId>
+    <artifactId>o1-pm-heartbeat-agent</artifactId>
+    <version>1.0.4-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>[${project.artifactId}] JEE8 Project</name>
+
+    <properties>
+        <version.jboss-eap>7.4.11.GA</version.jboss-eap>
+        <version.service.framework>4.65.1</version.service.framework>
+        <version.maven-plugin>3.2.1</version.maven-plugin>
+        <aggregate.report.dir>multi-test-coverage/target/site/jacoco-aggregate/jacoco.xml</aggregate.report.dir>
+        <ericsson.scm.url>
+            scm:git:[fetch=]ssh://gerrit-gamma-read.seli.gic.ericsson.se:29418/OSS/ENM-Parent/SQ-Gate/com.ericsson.oss.mediation.pm/o1-pm-heartbeat-agent[push=]ssh://gerrit-gamma.gic.ericsson.se:29418/OSS/ENM-Parent/SQ-Gate/com.ericsson.oss.mediation.pm/o1-pm-heartbeat-agent
+        </ericsson.scm.url>
+    </properties>
+
+    <modules>
+        <module>o1-pm-heartbeat-agent-ear</module>
+        <module>o1-pm-heartbeat-agent-ejb</module>
+        <module>ERICo1pmheartbeatagent_CXP9044248</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- JBOSS EAP -->
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>jboss-eap-jakartaee8</artifactId>
+                <version>${version.jboss-eap}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jboss.bom</groupId>
+                <artifactId>eap-runtime-artifacts</artifactId>
+                <version>${version.jboss-eap}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <scm>
+        <developerConnection>${ericsson.scm.url}</developerConnection>
+        <connection>${ericsson.scm.url}</connection>
+        <tag>HEAD</tag>
+    </scm>
+</project>
